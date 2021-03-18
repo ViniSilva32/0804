@@ -18,8 +18,7 @@
         android:layout_marginBottom="30dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_novo_personagem"
-        app:src="@drawable/ic_launcher_foreground" />
+        android:src="@drawable/ic_novo_personagem"/>
 
     <ListView
         android:id="@+id/activity_main_lista_personagem"

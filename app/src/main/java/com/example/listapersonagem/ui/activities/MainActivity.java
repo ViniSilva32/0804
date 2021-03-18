@@ -1,4 +1,4 @@
-package com.example.listapersonagem;
+package com.example.listapersonagem.ui.activities;
 
 import android.os.Bundle;
 import android.widget.Adapter;
@@ -7,6 +7,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.listapersonagem.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

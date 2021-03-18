@@ -6,4 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.FormularioPersonagemActivity">
 
+    <EditText
+        android:id="@+id/edittext_nome"
+        android:layout_width="328dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="34dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/edittext_altura"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edittext_altura"
+        android:layout_width="327dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Altura"
+        app:layout_constraintBottom_toTopOf="@+id/edittext_nascimento"
+        app:layout_constraintStart_toStartOf="@+id/edittext_nome"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_nome" />
+
+    <EditText
+        android:id="@+id/edittext_nascimento"
+        android:layout_width="330dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Data de Nascimento"
+        app:layout_constraintBottom_toTopOf="@+id/button_salvar"
+        app:layout_constraintStart_toStartOf="@+id/edittext_altura"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_altura" />
+
+    <Button
+        android:id="@+id/button_salvar"
+        android:layout_width="203dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginBottom="400dp"
+        android:text="Salvar"
+        app:backgroundTint="#009688"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_nascimento" />
 </androidx.constraintlayout.widget.ConstraintLayout>
