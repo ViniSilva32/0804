@@ -17,8 +17,6 @@ import com.example.listapersonagem.model.Personagem;
 
 public class FormularioPersonagemActivity extends AppCompatActivity {
 
-    //Gostei muito da sua aula professor!
-    //a
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
