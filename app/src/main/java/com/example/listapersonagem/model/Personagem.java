@@ -1,5 +1,7 @@
 package com.example.listapersonagem.model;
 
+import androidx.annotation.NonNull;
+
 public class Personagem {
     /*criação das variaveis locais e os parametros*/
     private final String nome;
@@ -14,6 +16,7 @@ public class Personagem {
         this.nascimento = nascimento;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return nome;
