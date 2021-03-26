@@ -19,12 +19,19 @@ import java.util.List;
 
 public class ListaPersonagemActivity extends AppCompatActivity
 {
+    private final PersonagemDAO dao = new PersonagemDAO();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // torna a lista mutável
+        // torna a o nome da lista mutável
         setTitle("Lista de Personagens");
+
+        //instancia personagens pré prontos
+        dao.salva(new Personagem("Ken","1,80","02041979"));
+        dao.salva(new Personagem("Ryu","1,80","02041979"));
 
         FloatingActionButton botaoNovoPersonagem = findViewById(R.id.fab_novo_personagem);
         botaoNovoPersonagem.setOnClickListener(new View.OnClickListener() {
@@ -50,17 +57,21 @@ public class ListaPersonagemActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
 
-        PersonagemDAO dao = new PersonagemDAO();
+        //acessar os dados dos personagens adicionados a lista
         ListView listaDePersonagens = findViewById(R.id.activity_main_lista_personagem);
         List<Personagem> personagens = dao.todos();
+        //adicionando personagens
         listaDePersonagens.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, personagens));
         listaDePersonagens.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            //selecão de personagem
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int posicao, long id) {
                 Personagem personagemEscolhido = personagens.get(posicao);
                 //Log.i("personagem",""+ personagemEscolhido);
-                Intent vaiParaFormulario = new Intent(ListaPersonagemActivity.this, FormularioPersonagemActivity.class);
-                startActivity(vaiParaFormulario);
+                //retorna ao formulario
+                Intent indoParaFormulario = new Intent(ListaPersonagemActivity.this, FormularioPersonagemActivity.class);
+                indoParaFormulario.putExtra("personagem", personagemEscolhido);
+                startActivity(indoParaFormulario);
             }
         });
     }
