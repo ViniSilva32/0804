@@ -18,7 +18,7 @@ import com.example.listapersonagem.model.Personagem;
 import java.io.Serializable;
 
 public class FormularioPersonagemActivity extends AppCompatActivity {
-
+ 
     private EditText campoNome;
     private EditText campoAltura;
     private EditText campoNascimento;
