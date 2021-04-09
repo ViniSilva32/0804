@@ -35,15 +35,7 @@ public class ListaPersonagemActivity extends AppCompatActivity
 
         configuraFabBotao();
 
-        //List<String> personagem = new ArrayList<>(Arrays.asList("Alex","Ken","Ryu", "Chun-li"));
 
-       /* TextView primeiroPersonagem = findViewById(R.id.textView);
-        TextView segundoPersonagem = findViewById(R.id.textView2);
-        TextView terceiroPersonagem = findViewById(R.id.textView3);
-
-        primeiroPersonagem.setText(personagem.get(0));
-        segundoPersonagem.setText(personagem.get(1));
-        terceiroPersonagem.setText(personagem.get(2));*/
 
     }
 
