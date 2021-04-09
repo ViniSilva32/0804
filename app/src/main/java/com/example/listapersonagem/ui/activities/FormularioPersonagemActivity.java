@@ -72,14 +72,6 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
                 personagemSalvo.setNascimento(nascimento);
                 dao.edita(personagemSalvo);
 
-               // Toast.makeText(FormularioPersonagemActivity.this,
-                 //       personagemSalvo.getNome() + " - " +
-                   //             personagemSalvo.getAltura() + " - " +
-                     //           personagemSalvo.getNascimento(), Toast.LENGTH_SHORT);
-
-                //Toast.makeText(FormularioPersonagemActivity.this,"Estou funcionando!",Toast.LENGTH_SHORT).show();
-
-
 
             }
         });
