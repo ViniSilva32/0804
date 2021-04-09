@@ -10,6 +10,7 @@ public class Personagem implements Serializable {
     private String altura;
     private String nascimento;
     private int id = 0;
+
     // salva as informações preenchidas pelo usuario.
     public Personagem(String nome, String altura, String nascimento) {
 
@@ -54,12 +55,16 @@ public class Personagem implements Serializable {
         return nome;
     }
 
-   public void SetId(int id){
+    public void SetId(int id) {
         this.id = id;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
+    }
+
+    public boolean idvalido() {
+        return id > 0;
     }
 
     /*public String getNome() {
