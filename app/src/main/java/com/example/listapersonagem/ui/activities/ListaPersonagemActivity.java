@@ -32,7 +32,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
         //codigo refatorado
         configuraFabNovoPersonagem();
     }
-
+    //configurações para tornar o botão de adicionar novos nomes a lista funcional
     private void configuraFabNovoPersonagem() {
         FloatingActionButton botaoNovoPersonagem = findViewById(R.id.fab_novo_personagem);
         botaoNovoPersonagem.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +42,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
             }
         });
     }
-
+    //Volta para o formulario
     private void abreFormularioSalva() {
         startActivity(new Intent(this, FormularioPersonagemActivity.class));
     }
@@ -53,10 +53,9 @@ public class ListaPersonagemActivity extends AppCompatActivity {
     }
 
     private void configuraLista() {
-        //acessar os dados dos personagens adicionados a lista
+        //mostra a lista de personagens
         ListView listaDePersonagens = findViewById(R.id.activity_main_lista_personagem);
         final List<Personagem> personagens = dao.todos();
-        //adicionando personagens
         listaDePersonagens(listaDePersonagens, personagens);
         configuraItemPorClique(listaDePersonagens);
     }
@@ -73,7 +72,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
             }
         });
     }
-
+    //torna possivel abrir e editar os dados do personagem
     private void abreFormularioModoEditar(Personagem personagem) {
         Intent indoParaFormulario = new Intent(this, FormularioPersonagemActivity.class);
         indoParaFormulario.putExtra(CHAVE_PERSONAGEM, personagem);

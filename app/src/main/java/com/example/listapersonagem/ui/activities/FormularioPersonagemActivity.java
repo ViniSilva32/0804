@@ -16,12 +16,17 @@ import com.example.listapersonagem.model.Personagem;
 import static com.example.listapersonagem.ui.activities.ConstantesActivities.CHAVE_PERSONAGEM;
 
 public class FormularioPersonagemActivity extends AppCompatActivity {
-
+    //mostra na hud que o personagem está sendo editado
     private static final String TITULO_APPBAR_EDITA_PERSONAGEM = "Editar Personagem";
+    //mostra na hud que um novo personagem está sendo criado
     private static final String TITULO_APPBAR_NOVO_PERSONAGEM = "Novo Persongem";
+    //adiciona o nome
     private EditText campoNome;
+    //adiciona a altura
     private EditText campoAltura;
+    //adiciona o nascimento
     private EditText campoNascimento;
+    //salva as informações inseridas pelo usuario
     private final PersonagemDAO dao = new PersonagemDAO();
     private Personagem personagem;
 
@@ -31,7 +36,9 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario_personagem);
         //Adiciona o título
         inicilizacaoCampos();
+        //deixa o botão salvar funcional
         configuraBotaoSalvar();
+        //ao clicar no personagem, mostra as informações inseridas pelo usuario
         carregaPersonagem();
 
     }
@@ -39,16 +46,19 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
     private void carregaPersonagem() {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_PERSONAGEM)) {
+            //altera a informação da hud (editando personagem)
             setTitle(TITULO_APPBAR_EDITA_PERSONAGEM);
             personagem = (Personagem) dados.getSerializableExtra(CHAVE_PERSONAGEM);
             preencherCampos();
         } else {
+            //altera a informação da hud (criando personagem)
             setTitle(TITULO_APPBAR_NOVO_PERSONAGEM);
             personagem = new Personagem();
         }
     }
 
     private void preencherCampos() {
+        //preenche os campos Nome, Altura, Nascimento
         campoNome.setText(personagem.getNome());
         campoAltura.setText(personagem.getAltura());
         campoNascimento.setText(personagem.getNascimento());
@@ -79,14 +89,14 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
     }
 
     private void inicilizacaoCampos() {
-        //idenctificação dos campos criados
+        //identificação dos campos criados
         campoNome = findViewById(R.id.edittext_nome);
         campoAltura = findViewById(R.id.edittext_altura);
         campoNascimento = findViewById(R.id.edittext_nascimento);
     }
 
     private void preenchePersonagem() {
-
+        //guarda as informações inseridas pelo usuario
         String nome = campoNome.getText().toString();
         String altura = campoAltura.getText().toString();
         String nascimento = campoNascimento.getText().toString();
