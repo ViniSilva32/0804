@@ -33,13 +33,7 @@ public class ListaPersonagemActivity extends AppCompatActivity
         dao.salva(new Personagem("Ken","1,80","02041979"));
         dao.salva(new Personagem("Ryu","1,80","02041979"));
 
-        FloatingActionButton botaoNovoPersonagem = findViewById(R.id.fab_novo_personagem);
-        botaoNovoPersonagem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ListaPersonagemActivity.this, FormularioPersonagemActivity.class));
-            }
-        });
+        configuraFabBotao();
 
         //List<String> personagem = new ArrayList<>(Arrays.asList("Alex","Ken","Ryu", "Chun-li"));
 
@@ -51,6 +45,16 @@ public class ListaPersonagemActivity extends AppCompatActivity
         segundoPersonagem.setText(personagem.get(1));
         terceiroPersonagem.setText(personagem.get(2));*/
 
+    }
+
+    private void configuraFabBotao() {
+        FloatingActionButton botaoNovoPersonagem = findViewById(R.id.fab_novo_personagem);
+        botaoNovoPersonagem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ListaPersonagemActivity.this, FormularioPersonagemActivity.class));
+            }
+        });
     }
 
     @Override
