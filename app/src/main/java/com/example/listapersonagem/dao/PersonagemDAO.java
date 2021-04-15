@@ -17,7 +17,7 @@ public class PersonagemDAO {
         
     }
 
-    public void edita (Personagem personagem){
+    public Personagem edita (Personagem personagem){
         Personagem personagemEscolhido = null;
         for (Personagem p:
             personagens) {
@@ -30,9 +30,15 @@ public class PersonagemDAO {
             int posicaoDoPersonagem = personagens.indexOf(personagemEscolhido);
             personagens.set(posicaoDoPersonagem, personagem);
         }
+        return personagemEscolhido;
     }
 
     public List<Personagem> todos() {
         return new ArrayList<>(personagens);
+    }
+
+    public void remove(Personagem personagem) {
+       Personagem personagemDevolvido = edita(personagem);
+       personagens.remove(personagemDevolvido);
     }
 }
