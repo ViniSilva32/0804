@@ -28,12 +28,14 @@ public class ListaPersonagemActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //super classe onCreate
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // torna a o nome da lista mutável
         setTitle(TITULO_APPBAR);
-        //codigo refatorado
+        //Refatorção configuraFabNovoPersonagem
         configuraFabNovoPersonagem();
+        //refatoração configuraLista
         configuraLista();
     }
 

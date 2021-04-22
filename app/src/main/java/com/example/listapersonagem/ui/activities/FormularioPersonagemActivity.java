@@ -3,15 +3,20 @@ package com.example.listapersonagem.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.listapersonagem.R;
 import com.example.listapersonagem.dao.PersonagemDAO;
 import com.example.listapersonagem.model.Personagem;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import static com.example.listapersonagem.ui.activities.ConstantesActivities.CHAVE_PERSONAGEM;
 
@@ -29,6 +34,22 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
     //salva as informações inseridas pelo usuario
     private final PersonagemDAO dao = new PersonagemDAO();
     private Personagem personagem;
+
+    @Override
+    //faz aparecer o botão de salvar no menu
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_formulario_personagem_menu_salvar,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemid = item.getItemId();
+        if(itemid == R.id.activity_formulario_personagem_menu_salvar){
+            finalizaFormulario();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,14 +110,24 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
     }
 
     private void inicilizacaoCampos() {
-        //identificação dos campos criados
+        //identificação dos campos criados (edittexts)
         campoNome = findViewById(R.id.edittext_nome);
         campoAltura = findViewById(R.id.edittext_altura);
         campoNascimento = findViewById(R.id.edittext_nascimento);
+
+        //limita a quantidade de caracteres e os separa por virgula ","
+        SimpleMaskFormatter smfAltura = new SimpleMaskFormatter ("N,NN");
+        MaskTextWatcher mtwAltura = new MaskTextWatcher(campoAltura, smfAltura);
+        campoAltura.addTextChangedListener(mtwAltura);
+
+        //limita a quantidade de caracteres e os separa por barras "/"
+        SimpleMaskFormatter smfNascimento = new SimpleMaskFormatter ("NN/NN/NNNN");
+        MaskTextWatcher mtwNascimento = new MaskTextWatcher(campoNascimento, smfNascimento);
+        campoNascimento.addTextChangedListener(mtwNascimento);
     }
 
     private void preenchePersonagem() {
-        //guarda as informações inseridas pelo usuario
+        //guarda as informações inseridas pelo usuario e os armazena em personagens
         String nome = campoNome.getText().toString();
         String altura = campoAltura.getText().toString();
         String nascimento = campoNascimento.getText().toString();
